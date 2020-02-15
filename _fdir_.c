@@ -13,7 +13,7 @@ char *_dot(int n)
 
 	return c;
 }
-int is_file(char *path) // This fuction isn't used
+int is_file(char *path) // This function wasn't used
 {
     struct stat st_path;
     stat(path, &st_path);
