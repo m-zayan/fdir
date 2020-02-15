@@ -1,6 +1,6 @@
 # **fdir**
 A fidir is a C optimized module for python provide functions for iterating OS files and directories.<br>
-Functions similar to (eg: OS. listdir) but much faster.
+Functions similar to (eg: os. listdir) but much faster.
 
 > # **Module Setup** 
 ----
