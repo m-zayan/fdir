@@ -42,6 +42,6 @@ The Function takes two arguments dictionary of ``paths`` and ``mod (1 , 2 , 3 or
 ------
 ```python
 import fdir
-sub_files = fdir.itrAll(sub_files,'.pdf') # return paths of all pdf files for each list of paths at dictionary
+dict_sub_files = fdir.itrAll(sub_files,'.pdf') # return paths of all pdf files for each list of paths at dictionary
 
 ```
