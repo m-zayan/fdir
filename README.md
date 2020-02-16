@@ -55,5 +55,5 @@ Recursively iterating through all files from initial path , Return List of all f
 ------
 ```python
 import fdir
-pdf_files = fdir.walk(sub_files,'.pdf') # return paths of all pdf files.
+pdf_files = fdir.walk(path,'.pdf') # return paths of all pdf files.
 ```
