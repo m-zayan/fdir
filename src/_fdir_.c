@@ -97,7 +97,7 @@ PyObject *_walk_(char *current_dir , char *mode,PyObject *list)
 
     dir = opendir(current_dir);
     while ((curr_dir=readdir(dir)) != NULL) {
-        if (!strcmp(curr_dir->d_name, ".") || !strcmp(curr_dir->d_name, "..") )
+        if (!strcmp(curr_dir->d_name, ".") || !strcmp(curr_dir->d_name, "..") || curr_dir->d_type == DT_UNKNOWN)
         {
         	continue;
         }
@@ -139,7 +139,7 @@ PyObject *_listdir_(char *current_dir , char *mode)
 
     dir = opendir(current_dir);
     while ((curr_dir=readdir(dir)) != NULL) {
-        if (!strcmp(curr_dir->d_name, ".") || !strcmp(curr_dir->d_name, "..") )
+        if (!strcmp(curr_dir->d_name, ".") || !strcmp(curr_dir->d_name, "..") || curr_dir->d_type == DT_UNKNOWN)
         {
         	continue;
         }
