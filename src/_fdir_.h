@@ -37,14 +37,21 @@ static char itrDict_docstring[]=
 	"Input dictionary of Paths Iterating OS Files and Directories "
 	"For Given Path, Return dictionary";
 
+static char walk_docstring[]=
+		"Iterating through OS Files and Directories For Given Path "
+		" Recursively Searching For Files of Specific Extension ( Mode )";
+
 static PyObject* fdir_listdir(PyObject *self , PyObject *args);
 static PyObject* fdir_itrAll(PyObject *self , PyObject *args);
 static PyObject* fdir_itrDict(PyObject *self , PyObject *args);
+static PyObject* fdir_walk(PyObject *self , PyObject *args);
+
 
 static PyMethodDef module_methods[]= {
 		{"listdir",fdir_listdir,METH_VARARGS,listdir_docstring},
 		{"itrAll",fdir_itrAll,METH_VARARGS,itrAll_docstring},
 		{"itrDict",fdir_itrDict,METH_VARARGS,itrDict_docstring},
+		{"walk",fdir_walk,METH_VARARGS,walk_docstring},
 		{NULL,NULL,0,NULL}
 };
 

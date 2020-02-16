@@ -84,6 +84,46 @@ void py_err_msg(PyObject *type,const char *c)
     PyErr_SetString(type,c);
 }
 
+PyObject *_walk_(char *current_dir , char *mode,PyObject *list)
+{
+	if(!is_dir(current_dir))
+    {
+        Py_INCREF(list);
+        return list;
+    }
+
+    DIR *dir;
+    struct dirent *curr_dir;
+
+    dir = opendir(current_dir);
+    while ((curr_dir=readdir(dir)) != NULL) {
+        if (!strcmp(curr_dir->d_name, ".") || !strcmp(curr_dir->d_name, "..") )
+        {
+        	continue;
+        }
+        else
+        { 
+            if(curr_dir->d_type == DT_DIR)
+            {
+                char *tmp = PyBytes_AS_STRING(PyBytes_FromFormat("%s/%s",current_dir,curr_dir->d_name));
+               _walk_(tmp,mode,list);
+            }
+            if(is_mode(curr_dir->d_name,mode))
+            {
+        	    int added =  PyList_Append(list,PyUnicode_FromString(PyBytes_AS_STRING(PyBytes_FromFormat("%s/%s",current_dir,curr_dir->d_name))));
+
+        	    if(added == -1)
+                    py_err_msg(MODULE_ERROR,"Unhandled Exception : PyList_Append(...)");
+            }
+        }
+    }
+    closedir(dir);
+
+    Py_INCREF(list);
+
+    return list;
+}
+
 PyObject *_listdir_(char *current_dir , char *mode)
 {
 	if(!is_dir(current_dir))
@@ -205,4 +245,21 @@ static PyObject *fdir_itrDict(PyObject *self , PyObject *args)
     PyObject *newDict = Py_BuildValue("O",map);
 
     return newDict;
+}
+
+static PyObject *fdir_walk(PyObject *self,PyObject *args)
+{
+	char *current_dir;
+	char *mode;
+
+	if(!PyArg_ParseTuple(args , "ss" ,&current_dir,&mode))
+		return NULL;
+
+	PyObject *empty_list = PyList_New(0);
+
+	PyObject *list =  Py_BuildValue("O",_walk_(current_dir,mode,empty_list));
+
+	Py_DecRef(empty_list);
+
+	return list;
 }
