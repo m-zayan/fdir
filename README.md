@@ -13,7 +13,7 @@ Type ``python setup.py build && python setup.py install`` <br>
 > # **Module Functions**<br>
 ----
 ## **``listdir(str path,str mode)``**<br>
-The Function takes two arguments ``path`` and ``mod (1 , 2 , 3 or 4)`` <br>
+The Function takes two arguments ``path`` and ``mode (1 , 2 , 3 or 4)`` <br>
 return List of pathes from given ``path``<br>
 > **Ex**
 ------
@@ -24,7 +24,7 @@ pathes_list = fdir.listdir(path,'./') # return path of all folders at the curren
 ```
 
 ## **``itrAll(list paths,str mode)``**<br>
-The Function takes two arguments list of ``paths`` and ``mod (1 , 2 , 3 or 4)`` <br>
+The Function takes two arguments list of ``paths`` and ``mode (1 , 2 , 3 or 4)`` <br>
 return dictionary ``(str key,list paths)``<br>
 > **Ex** 
 ------
@@ -35,7 +35,7 @@ sub_files = fdir.itrAll(pathes_list,'./') # return paths of all folders for each
 ```
 
 ## **``itrDict(dict paths,str mode)``**<br>
-The Function takes two arguments dictionary of ``paths`` and ``mod (1 , 2 , 3 or 4)`` <br>
+The Function takes two arguments dictionary of ``paths`` and ``mode (1 , 2 , 3 or 4)`` <br>
 return dictionary ``(str key,dict paths)``<br>
 > **Ex** 
 ------
@@ -45,7 +45,7 @@ dict_sub_files = fdir.itrAll(sub_files,'.pdf') # return paths of all pdf files f
 
 ```
 ## **``walk(str paths,str mode)``**<br>
-The Function takes two arguments dictionary of ``paths`` and ``mod (1 , 2 , 3 or 4)`` <br>
+The Function takes two arguments dictionary of ``paths`` and ``mode (1 , 2 , 3 or 4)`` <br>
 Recursively iterating through all files from initial path , Return List of all files which match ``mode`` <br>
 > **Ex** 
 ------
