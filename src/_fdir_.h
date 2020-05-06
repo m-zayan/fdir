@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <string.h>
 
+#define PY_SSIZE_T_CLEAN
 #include<python3.6m/Python.h>
 
 typedef enum {true, false} bool;

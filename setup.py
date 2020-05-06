@@ -1,18 +1,30 @@
-from distutils.core import setup, Extension
+from setuptools import setup, Extension
+from setuptools.command.install import install
+import subprocess
+import os
 
+with open("README.md", "r") as md:
+    doc = md.read()
+
+class PackageInstaller(install):
+    def runInstall(self):
+        command = "git clone https://github.com/m-zayan/fdir.git"
+        process = subprocess.Popen(command, shell=True, cwd="fdir")
+        process.wait()
+        install.runInstall(self)
+        
 module = Extension('fdir',
                     define_macros = [('MAJOR_VERSION', '1'),
-                                     ('MINOR_VERSION', '0')],
+                                     ('MINOR_VERSION', '0.1')],
                     sources = ['src/_fdir_.c'])
 
 
 
 setup(
     name="fdir",
-    version="0.1.0",
+    version="1.0",
     description = 'Module For Iterating through OS Directories',
     url="https://github.com/m-zayan/fdir",
-    download_url = 'https://github.com/m-zayan/fdir/archive/v0.1.0-alpha.tar.gz',
     author = 'Mohamed Zayan',
     author_email="zayanm410@gmail.com",
     license ='MIT',
@@ -25,6 +37,10 @@ setup(
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
   ],
+    long_description=doc,
+    long_description_content_type="text/markdown",
+    cmdclass={'install': PackageInstaller},
+    include_package_data=True,
     ext_modules = [module]
 )
 
