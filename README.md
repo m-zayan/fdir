@@ -1,14 +1,16 @@
-> # **Module Setup** <br>
+## **Install** <br>
 ----
-  Open terminal (**Linux**) or cmd (**Windows command prompt**)<br>
-Type ``pip install fdir==1.0`` <br>
-> # **Modes**
+
+``$ pip install fdir==1.0`` <br><br>
+
+## **Modes** <br>
 -------
  1 - ``./`` Dirctories (Folders) <br>
  2 - ``.``  Files <br>
  3 - ``.*`` Files with specific extension (eg : ``.csv`` or ``.pdf``)<br>
- 4 - ``//`` Files and Directories <br>
-> # **Module Functions**<br>
+ 4 - ``//`` Files and Directories <br><br>
+
+## **Module Functions**<br>
 ----
 ## **``listdir(str path,str mode)``**<br>
 The Function takes two arguments ``path`` and ``mode (1 , 2 , 3 or 4)`` <br>
