@@ -1,7 +1,5 @@
 > # **Module Setup** <br>
 ----
- ``git clone https://github.com/m-zayan/fdir.git``<br>
-  Unzip file then open it<br>
   Open terminal (**Linux**) or cmd (**Windows command prompt**)<br>
 Type ``pip install fdir==1.0`` <br>
 > # **Modes**
