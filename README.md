@@ -1,7 +1,9 @@
 ## **Install** <br>
 ----
 
-``$ pip install fdir==1.0`` <br><br>
+```
+$ pip install fdir==1.0
+```
 
 ## **Modes** <br>
 -------
