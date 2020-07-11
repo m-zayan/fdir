@@ -43,7 +43,7 @@ return dictionary ``(str key,dict paths)``<br>
 ------
 ```python
 import fdir
-dict_sub_files = fdir.itrAll(sub_files,'.pdf') # return paths of all pdf files for each list of paths at dictionary
+dict_sub_files = fdir.itrDict(sub_files,'.pdf') # return paths of all pdf files for each list of paths at dictionary
 
 ```
 ## **``walk(str paths,str mode)``**<br>
